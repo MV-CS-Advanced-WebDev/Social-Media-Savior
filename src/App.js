@@ -4,7 +4,6 @@ import Source from './pages/Source';
 
 import app from './tools/Firebase'
 
-
 import {useAuthState} from 'react-firebase-hooks/auth' //checks if user is logged in or not using a functin called useAuthState
 //it returns an array with the user and the loading state as well as if an erorr has occured. all are boolean values
 import { getAuth } from 'firebase/auth';
@@ -18,7 +17,7 @@ const App = ()=>{
 
   return (
     <>
-      {user ? <Source /> : <Login />}
+      {loading ? <center><h1>Loading...</h1></center> : error ? <center><h1>There has been an error! Refresh? </h1></center> : user ? <Source /> : <Login />}
       {/* if a user is present allow them to access the source page otherwise allow them to login */}
     </>
   );
